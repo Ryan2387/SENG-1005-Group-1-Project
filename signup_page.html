@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="login_signup_page_style.css">
+    </head>
+
+    <body>
+      
+
+        <div class="wrapper">
+            <form action="">
+                <a href="index.html"><h1>Sign Up</h1></a>
+                <div class="input-box">
+                    <input type="email" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" placeholder="Confirm Password">
+                </div>
+
+                <button type="submit" class="button" onclick="">Create</button>
+                <py-script scr="signup_login_function.py"></py-script>
+
+                <div class="login-link">
+                    <p>Already have an account?<a href="login_signup_page.html">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </body>
+    <footer>
+        <p>© 2024 Knowledge Nest. All rights reserved.</p>
+    </footer>
+   
+</html>
