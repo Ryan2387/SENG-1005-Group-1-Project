@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledgenest - Flashcards</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}"><div class="logo">
+        Knowledgenest
+        </div></a>
+        <div class="menu">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('practice_test') }}">Practice Test</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Flashcards</h1>
+
+        <div class="flashcard-form">
+            <input type="text" id="questionInput" placeholder="Enter Question" />
+            <input type="text" id="answerInput" placeholder="Enter Answer" />
+            <button id="addFlashcardButton">Add Flashcard</button>
+        </div>
+
+        <div class="flashcard" id="flashcard">
+            <div class="card front" id="cardFront">Question?</div>
+            <div class="card back" id="cardBack">Answer</div>
+        </div>
+
+        <button id="prevButton">Previous</button>
+        <button id="flipButton">Flip Card</button>
+        <button id="nextButton">Next Card</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <footer>
+        <p>© 2024 Knowledge Nest. All rights reserved.</p>
+    </footer>
+</body>
+</html>
