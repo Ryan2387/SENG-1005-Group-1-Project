@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_signup_page_style.css') }}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="form_login" method="POST">
+            <a href="{{ url_for('home') }}"><h1>Login</h1></a>
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox">Remember Me</label>
+                <a href="#">Forgot Password</a>
+            </div>
+
+            <input type="submit" class="button" value="Login"></input>
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="{{ url_for('signup') }}">Register</a></p>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>© 2024 Knowledge Nest. All rights reserved.</p>
+    </footer>
+</body>
+</html>

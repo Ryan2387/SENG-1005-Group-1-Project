@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Test - Chemistry</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Practice_test.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}">
+            <div class="logo">Knowledgenest</div>
+        </a>
+        <div class="menu">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('practice_test') }}">Practice Test</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Practice Test - Chemistry</h1>
+
+        {% if feedback %}
+        <!-- Results Section -->
+        <h2>Your Score: {{ score }}/{{ questions|length }}</h2>
+        <div class="feedback">
+            {% for item in feedback %}
+                <div class="result">
+                    <p><strong>Question:</strong> {{ item.question }}</p>
+                    <p><strong>Your Answer:</strong> {{ item.user_answer or "No Answer" }}</p>
+                    <p><strong>Correct Answer:</strong> {{ item.correct_answer }}</p>
+                    <p class="{{ 'correct' if item.correct else 'incorrect' }}">
+                        {{ '✔️ Correct' if item.correct else '❌ Incorrect' }}
+                    </p>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('practice_test') }}" class="btn">Retake Test</a>
+        {% else %}
+        <!-- Test Form Section -->
+        <form method="POST">
+            {% for question in questions %}
+            <div>
+                <p>{{ question.id }}. {{ question.question }}</p>
+                {% for option in question.options %}
+                <input type="radio" id="q{{ question.id }}_{{ option }}" name="q{{ question.id }}" value="{{ option }}">
+                <label for="q{{ question.id }}_{{ option }}">{{ option }}</label><br>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn">Submit Test</button>
+        </form>
+        {% endif %}
+    </div>
+</body>
+</html>
